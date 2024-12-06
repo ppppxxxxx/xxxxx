@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1a1a3e",
+    "navigationBarTitleText": "开心消消乐",
+    "navigationBarTextStyle": "white"
+  }
+} 

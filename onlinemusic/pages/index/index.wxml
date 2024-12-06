@@ -1,0 +1,17 @@
+<view class="game-container">
+  <view class="game-header">
+    <view class="score">分数: {{score}}</view>
+    <view class="moves">剩余步数: {{moves}}</view>
+  </view>
+  <view class="game-board" bindtap="onBoardTap">
+    <view wx:for="{{board}}" 
+          wx:key="id"
+          class="candy {{item.selected ? 'selected' : ''}} {{item.matched ? 'matched' : ''}} {{item.new ? 'new' : ''}} {{item.swapDirection}}"
+          data-row="{{item.row}}"
+          data-col="{{item.col}}" style="position: relative; left: 1rpx; top: 0rpx">
+      {{item.type}}
+      <view wx:if="{{item.score}}" class="score-popup">+10</view>
+    </view>
+  </view>
+  <button class="reset-btn" bindtap="resetGame">重新开始</button>
+</view> 

@@ -1,0 +1,319 @@
+:root {
+    --sidebar-width: 200px;
+    --top-bar-height: 64px;
+    --player-bar-height: 80px;
+    --primary-color: #1db954;
+    --bg-color: #121212;
+    --text-primary: #fff;
+    --text-secondary: #b3b3b3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: var(--bg-color);
+    color: var(--text-primary);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    width: var(--sidebar-width);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.main-nav ul, .my-music ul {
+    list-style: none;
+}
+
+.main-nav a, .my-music a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.main-nav .active a {
+    color: var(--text-primary);
+}
+
+/* 主内容区样式 */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    height: var(--top-bar-height);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.avatar img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 播放器样式 */
+.player-bar {
+    height: var(--player-bar-height);
+    background: #252525;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    border-top: 1px solid #333;
+    z-index: 1000;
+}
+
+.now-playing {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 30%;
+    min-width: 180px;
+}
+
+.now-playing img {
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.track-info span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#miniTitle {
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+#miniArtist {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.player-controls {
+    width: 40%;
+    max-width: 722px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.control-buttons button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.control-buttons button:hover {
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+.play-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    background: var(--text-primary);
+    color: var(--bg-color) !important;
+}
+
+.play-btn:hover {
+    transform: scale(1.05) !important;
+    background: #fff !important;
+}
+
+.progress-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+}
+
+.current-time, .total-time {
+    color: var(--text-secondary);
+    font-size: 12px;
+    min-width: 40px;
+}
+
+.progress-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress-track:hover {
+    height: 6px;
+}
+
+.progress-track:hover .progress {
+    background: var(--primary-color);
+}
+
+.progress {
+    position: absolute;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.extra-controls {
+    width: 30%;
+    min-width: 180px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 140px;
+}
+
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.volume-slider:hover {
+    height: 6px;
+}
+
+.volume-level {
+    position: absolute;
+    height: 100%;
+    background: var(--text-secondary);
+    border-radius: 2px;
+}
+
+.volume-slider:hover .volume-level {
+    background: var(--primary-color);
+}
+
+/* 按钮样式 */
+button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+button:hover {
+    color: var(--text-primary);
+}
+
+.play-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 内容区域样式 */
+.content-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.music-player {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cover-art img {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+} 
